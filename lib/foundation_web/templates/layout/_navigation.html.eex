@@ -12,7 +12,7 @@
     <ul class="menu">
       <li><a href="#">Videos</a></li>
       <li><a href="#">Add Video</a></li>
-      <li><a href="#">Sign in with Google</a></li>
+      <li><a href="<%= auth_path(@conn, :request, "google", scope: "email profile") %>">Sign in with Google</a></li>
     </ul>
   </div>
 </div>
