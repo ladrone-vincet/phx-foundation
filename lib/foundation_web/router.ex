@@ -13,6 +13,13 @@ defmodule FoundationWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/auth", FoundationWeb do
+    pipe_through :browser
+
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :new
+  end
+
   scope "/", FoundationWeb do
     pipe_through :browser # Use the default browser stack
 
