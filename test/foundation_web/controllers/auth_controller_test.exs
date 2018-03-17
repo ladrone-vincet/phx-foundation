@@ -1,7 +1,9 @@
 defmodule FoundationWeb.AuthControllerTest do
   use FoundationWeb.ConnCase
+  import Foundation.Factory
   alias Foundation.Repo
   alias Foundation.User
+
 
   @ueberauth_auth %{credentials: %{token: "fdsnoafhnoofh08h38h"},
                     info: %{email: "tesla@example.com", first_name: "Nikola", last_name: "Tesla"},
@@ -20,5 +22,16 @@ defmodule FoundationWeb.AuthControllerTest do
     users = User |> Repo.all
     assert Enum.count(users) == 1
     assert get_flash(conn, :info) == "Thank you for signing in!"
+  end
+
+  test "sings out user", %{conn: conn} do
+    user = insert(:user)
+
+    conn = conn
+        |> assign(:user, user)
+        |> get("/auth/signout")
+        |> get("/")
+
+    assert conn.assigns.user == nil
   end
 end
