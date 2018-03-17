@@ -12,12 +12,12 @@
     <ul class="menu">
       <%= if @conn.assigns[:user] do %>
         <li class="menu-text">Welcome, <%= @conn.assigns.user.first_name %></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Add Video</a></li>
+        <li><%= link "Videos", to: video_path(@conn, :index) %></li>
+        <li><%= link "Add video", to: video_path(@conn, :new) %></li>
         <li><%= link "Sign out", to: auth_path(@conn, :delete), class: "button alert" %></li>
       <% else %>
-        <li><a href="#">Videos</a></li>
-        <li><<%= link "Sign in with Google", to: auth_path(@conn, :request, "google", scope: "email profile", class: "button") %></li>
+        <li><%= link "Videos", to: video_path(@conn, :index) %></li>
+        <li><%= link "Sign in with Google", to: auth_path(@conn, :request, "google", scope: "email profile", class: "button") %></li>
       <% end %>
     </ul>
   </div>
