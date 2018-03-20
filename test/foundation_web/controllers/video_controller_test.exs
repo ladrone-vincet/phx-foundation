@@ -5,7 +5,7 @@ defmodule FoundationWeb.VideoControllerTest do
 
   alias Foundation.Videos.Video
 
-  @create_attrs %{video_id: "some video_id"}
+  @create_attrs %{video_id: "https://www.youtube.com/watch?v=LX2nq-tthxs"}
   @invalid_attrs %{video_id: ""}
 
   def fixture(:video) do

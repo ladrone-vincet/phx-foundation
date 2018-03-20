@@ -4,7 +4,7 @@ defmodule Foundation.Videos.YoutubeData do
 
   alias Foundation.Videos.Video
 
-  def has_valid_reges?(video_params) do
+  def has_valid_regex?(video_params) do
     Regex.run(~r/(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/,
               video_params["video_id"])
   end

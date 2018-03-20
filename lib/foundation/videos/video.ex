@@ -1,7 +1,7 @@
 defmodule Foundation.Videos.Video do
   use Ecto.Schema
   import Ecto.Changeset
-
+  alias Foundation.User
 
   schema "videos" do
     field :duration, :string
@@ -9,7 +9,7 @@ defmodule Foundation.Videos.Video do
     field :title, :string
     field :video_id, :string, unique: true
     field :view_count, :integer
-    field :user_id, :id
+    belongs_to :user, User
 
     timestamps()
   end

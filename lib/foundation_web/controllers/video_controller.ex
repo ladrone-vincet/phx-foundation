@@ -23,7 +23,7 @@ defmodule FoundationWeb.VideoController do
           |> render("new.html", changeset: changeset)
 
       regex ->
-        YoutubeData.create_or_show_vider(conn, regex)
+        YoutubeData.create_or_show_video(conn, regex)
     end
   end
 
