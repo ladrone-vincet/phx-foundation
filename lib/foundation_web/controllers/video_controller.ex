@@ -4,6 +4,8 @@ defmodule FoundationWeb.VideoController do
   alias Foundation.Videos
   alias Foundation.Videos.{Video, YoutubeData}
 
+  plug :check_video_owner when action in [:delete]
+
   def index(conn, _params) do
     videos = Videos.list_videos()
     render(conn, "index.html", videos: videos)
@@ -39,5 +41,18 @@ defmodule FoundationWeb.VideoController do
     conn
     |> put_flash(:info, "Video deleted successfully.")
     |> redirect(to: video_path(conn, :index))
+  end
+
+  defp check_video_owner(conn, _params) do
+    %{params: %{"id" => video_id}} = conn
+
+    if Foundation.Repo.get(Video, video_id).user_id == conn.assigns.user.id do
+      conn
+    else
+      conn
+        |> put_flash(:error, "You have no permissions to do this")
+        |> redirect(to: video_path(conn, :index))
+        |>halt()
+    end
   end
 end

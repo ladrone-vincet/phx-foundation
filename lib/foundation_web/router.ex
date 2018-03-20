@@ -14,6 +14,10 @@ defmodule FoundationWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :auth do
+    plug FoundationWeb.Plugs.RequireAuth
+  end
+
   scope "/auth", FoundationWeb do
     pipe_through :browser
 
@@ -23,9 +27,15 @@ defmodule FoundationWeb.Router do
   end
 
   scope "/", FoundationWeb do
+    pipe_through [:browser, :auth]
+
+    resources "/videos", VideoController, only: [:new, :create]
+  end
+
+  scope "/", FoundationWeb do
     pipe_through :browser # Use the default browser stack
 
-    resources "/videos", VideoController, except: [:edit, :update]
+    resources "/videos", VideoController, only: [:index, :show, :delete]
     get "/", PageController, :index
   end
 
