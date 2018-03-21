@@ -12,6 +12,6 @@
   </div>
 
   <div class="form-group">
-    <%= submit "Add video", class: "btn btn-primary" %>
+    <%= submit "Add video", class: "button success" %>
   </div>
 <% end %>

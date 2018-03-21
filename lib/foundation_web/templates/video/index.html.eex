@@ -1,7 +1,17 @@
 <div class="grid video-index">
   <div class="medium-8 medium-offset-2 columns">
     <div class="callout secondary">
-      <h2 class="text-center">Your Videos</h2>
+      <!-- <h2 class="text-center">Your Videos</h2> -->
+      <p>
+        Sort by: <%= sort_link @conn, @rummage, [field: :title, ci: true] %> ~
+        <%= sort_link @conn, @rummage, [field: :view_count] %> ~
+        <%= sort_link @conn, @rummage, [field: :duration] %>
+      </p>
+      <p>
+        <%= search_form(@conn, @rummage, [fields: [title: %{label: "",
+                                                            search_type: "ilike"},],
+                                          button_class: "button"]) %>
+      </p>
     <%= for video <- @videos do %>
       <div class="row">
         <div>
@@ -13,12 +23,13 @@
             Views: <%= Number.Delimit.number_to_delimited(video.view_count, precision: 0) %>
           </div>
           <div>
-            <%= link img_tag(video.thumbnail, style: "height:200px"), to: video_path(@conn, :show, video) %>
+            <%= link img_tag(video.thumbnail, style: "height:100px"), to: video_path(@conn, :show, video) %>
           </div>
           <hr>
         </div>
       </div>
     <% end %>
+    <%= pagination_link(@conn, @rummage) %>
   </div>
 </div>
 </div>
