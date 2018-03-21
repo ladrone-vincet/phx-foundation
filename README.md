@@ -1,20 +1,13 @@
-# Foundation
+# Introduction
+Hello there!
+It is little educational Phoenix app implementing basic OAuth based authorization, simple CRUD via REST API and also Foundation CSS framework.
 
-To start your Phoenix server:
+## Used technologies
+    * Phoenix & Elixir
+    * Foundation.css
+    * PostgreSQL & Ecto 
+    * more minor Phoenix modules
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+## Contributions
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
-
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: http://phoenixframework.org/docs/overview
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+  My work was based on great articles with Phoenix introduction of *Brian Emory*. Go check out his awesome blog here: https://medium.brianemory.com/@thebrianemory
