@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Phoenix learning app">
+    <meta name="author" content="Ladrone Vincet">
+    <meta name="contribution-to" content="Brian Empory">
+    <meta name="whose-blog-is" content="https://medium.brianemory.com/@thebrianemory">
+    <meta name="this-is-not" content="How one shoud use meta tags">
 
     <title>Hello Foundation!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
