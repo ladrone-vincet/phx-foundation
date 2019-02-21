@@ -10,4 +10,4 @@ It is little educational Phoenix app implementing basic OAuth based authorizatio
 
 ## Contributions
 
-  My work was based on great articles with Phoenix introduction of *Brian Emory*. Go check out his awesome blog here: https://medium.brianemory.com/@thebrianemory
+  My work was based on great articles with introduction to Phoenix by *Brian Emory*. Go check out his awesome blog here: https://medium.brianemory.com/@thebrianemory
